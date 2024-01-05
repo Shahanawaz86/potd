@@ -1,0 +1,77 @@
+class Solution{
+    public:
+    //Function to return the count of number of elements in union of two arrays.
+    int doUnion(int a[], int n, int b[], int m)  {
+        int arr[n+m];
+        sort(a,a + n);
+        sort(b,b + m);
+        int i=0,j=0,k=0;
+        
+        
+        while(i<n&&j<m)
+        {
+            if(a[i]==b[j])
+            {
+                if(arr[k-1]!=a[i])
+                {
+                arr[k]=a[i];
+                k++;
+                }
+                i++;j++;
+            }
+            
+            else if(a[i]<b[j])
+            {
+                if(arr[k-1]!=a[i])
+                {
+                arr[k]=a[i];
+                k++;
+                }
+                i++;
+            }
+            
+            
+            else if(b[j]<a[i])
+             {
+                 if(arr[k-1]!=b[j])
+                 {
+                arr[k]=b[j];
+                k++;
+                 }
+             j++;
+            }
+          
+            
+        }
+            
+            while(i<n)
+            {
+                if(arr[k-1]!=a[i])
+                {
+              arr[k]=a[i];
+                k++;
+                }
+                i++;
+            }
+            
+            
+            while(j<m)
+            {
+                if(arr[k-1]!=b[j])
+                {
+                arr[k]=b[j];
+                k++;
+                }
+                j++;
+                
+            }
+            
+            
+            return k;
+        
+        
+        
+       
+        return 0;
+    }
+};
