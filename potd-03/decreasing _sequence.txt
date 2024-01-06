@@ -1,0 +1,27 @@
+
+int minMoves(int a[], int n, int k)
+{
+    int ctr=0;
+    for(int i=1;i<n;i++)
+    {
+        if(a[i]>a[i-1])
+        
+        {
+            int d;
+            if((a[i]-a[i-1])%k!=0 )
+            {
+             d = (a[i]-a[i-1])/k + 1;
+            }
+            else
+            {
+              d = (a[i]-a[i-1])/k; 
+            }
+            a[i]=a[i]-d*k;
+            ctr=ctr%(int)(1e9+7)+d%(int)(1e9+7);
+           
+        }
+        
+    }
+    return (ctr%(int)(1e9+7));
+    
+}
