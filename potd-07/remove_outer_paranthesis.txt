@@ -1,0 +1,32 @@
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        int ctr1=0, ctr2=0,i=0,j=i,len=s.length();
+
+        while(i<len)
+        {
+            if(s[i]=='(')
+            ctr1++;
+            else
+            ctr2++;
+
+            if(ctr1==ctr2)
+            {
+                s.erase(j,1);
+                i--;
+                s.erase(i,1);
+                j=i;
+                i--;
+                len=s.length();
+                ctr1=0;
+                ctr2=0;
+            }
+
+         i++;
+
+
+        }
+        return s;
+        
+    }
+};

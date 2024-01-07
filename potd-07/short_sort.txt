@@ -1,0 +1,40 @@
+using namespace std;
+#include <iostream>
+#include <string>
+int main()
+{
+  string str;
+  int n,ctr,i;
+  cin>>n;
+ 
+  for(i=0;i<n;i++)
+  {
+    ctr=0;
+    cin>>str;
+ 
+    for(int i=0;i<3;i++)
+    {
+      if(i==0 && str[i]=='a')
+      {
+        cout<<"\nYES\n";  ctr=1;  break;
+      }
+ 
+      else if(i==1 && str[i]=='b')
+      {
+        cout<<"\nYES\n";  ctr=1;  break;
+      }
+ 
+      else if(i==2 && str[i]=='c')
+      {
+        cout<<"\nYES\n";  ctr=1;  break;
+      }
+ 
+    }
+ 
+    if(ctr==0)
+    cout<<"\nNO\n";
+ 
+ 
+  }
+ 
+}
