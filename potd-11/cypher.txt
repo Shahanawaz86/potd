@@ -1,0 +1,63 @@
+https://codeforces.com/contest/1703/problem/C
+
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    int k;
+    cin >> k;
+    for (; k--;)
+    {
+        cout << "\n";
+        int n;
+        cin >> n;
+        int *arr = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            cin >> arr[i];
+        }
+ 
+        for (int i = 0; i < n; i++)
+        {
+            int a;
+            cin >> a;
+            char *str = new char[a];
+            for (int i = 0; i < a; i++)
+            {
+                cin >> str[i];
+            }
+            int c1=0,c2=0;
+            for( int i=0;i<a;i++)
+            {
+                if(str[i]=='U')
+                c1++;
+                else
+                c2++;
+             }
+             int s=abs(c1-c2);
+             if(c1<=c2)
+             {
+                arr[i]=(arr[i]+s)%10;
+             }
+             else
+             {
+             if((arr[i]-s)>=0)
+             {
+                arr[i]=(arr[i]-s)%10;
+             }
+             else
+             {
+                arr[i]=arr[i]-s+10;
+             }
+             
+             }
+ 
+        }
+        cout<<"\n";
+        for(int i=0;i<n;i++)
+        {
+            cout<<" "<<arr[i];
+        }
+    }
+}
