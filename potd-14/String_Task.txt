@@ -1,0 +1,29 @@
+https://codeforces.com/problemset/problem/118/A
+
+code: 
+
+#include<iostream>
+#include<algorithm>
+#include<string>
+using namespace std;
+int main()
+{
+    string str,str1="";
+    cin>>str;
+    int l=str.length();
+    transform(str.begin(), str.end(),str.begin(), ::tolower);
+    for(int i=0;i<l;i++)
+    {
+    if(str[i]=='a' ||str[i]=='e' ||str[i]=='i' ||str[i]=='o' ||str[i]=='u' ||str[i]=='y')
+    {
+    continue;
+    }
+    else{
+        str1.push_back('.');
+        str1.push_back(str[i]);
+    }
+    }
+    cout<<str1<<endl;
+ 
+ 
+}
