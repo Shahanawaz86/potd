@@ -1,0 +1,29 @@
+link: 
+https://leetcode.com/problems/subarray-sum-equals-k/description/
+
+code: 
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        int len=nums.size();
+        int i=0,ctr=0;
+        while(i<len)
+        {
+            
+            int sumj=0;
+            int j=i;
+            while(j>=0)
+            {
+                sumj+=nums[j];
+                if(sumj==k)
+                ctr++;
+
+                j--;
+               
+            }
+            i++;
+        }
+        return ctr;
+        
+    }
+};

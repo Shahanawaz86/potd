@@ -1,0 +1,57 @@
+link: https://leetcode.com/problems/compare-version-numbers/submissions/1155450182/
+
+code: 
+class Solution {
+public:
+    int compareVersion(string version1, string version2) {
+        int l1=version1.length();        
+        int l2=version2.length();
+        int ctr=0,ctr1=0;
+        for(int i=0;i<l1;i++)
+        {
+            if(version1[i]=='.')
+            ctr++;
+        }
+
+        for(int i=0;i<l2;i++)
+        {
+            if(version2[i]=='.')
+            ctr1++;
+        }
+        int m=max(ctr,ctr1);
+        int k=0,i=0,j=0;
+        
+        while(k<=m)
+        {
+            string s1="0",s2="0";
+            while(i<l1 && version1[i]!='.')
+            {
+                s1.push_back(version1[i]);
+                i++;
+            }
+
+            while(j<l2 && version2[j]!='.')
+            {
+                s2.push_back(version2[j]);
+                j++;
+            }
+
+            int num1=stoi(s1);
+            int num2=stoi(s2);
+            if(num1>num2)
+            {
+                return 1;
+            }
+            else if(num1<num2)
+            {
+                return -1;
+            }
+            else if(num1==num2)
+            {
+                i++;j++;k++;
+            }
+
+        }
+        return 0;
+    }
+};

@@ -1,0 +1,28 @@
+link: https://leetcode.com/problems/sort-array-by-parity-ii/description/
+
+code:
+
+class Solution {
+public:
+    vector<int> sortArrayByParityII(vector<int>& nums) {
+        int l=nums.size();
+    
+       vector<int> ans(l);
+       auto i=0,j=1;
+       for(int k=0;k<l;k++)
+       {
+           if(nums[k]%2==0)
+           {
+               ans[i]=nums[k];
+               i=i+2;
+           }
+           else
+           {
+             ans[j]=nums[k];
+               j=j+2;  
+           }
+       }
+      
+       return ans;
+    }
+};

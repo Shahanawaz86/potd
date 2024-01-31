@@ -1,0 +1,30 @@
+link: https://leetcode.com/problems/happy-number/submissions/1154734759/
+
+code:
+
+class Solution {
+public:
+    bool isHappy(int n) {
+        long long int num,num1,sum=0;
+        num=n;
+        while(num>=10)
+        {
+            sum=0;
+            num1=num;
+            while(num1>0)
+            {
+                int d=num1%10;
+                sum=sum+d*d;
+                num1=num1/10;
+
+            }
+            num=sum;
+            
+        }
+        if(num==1 || num==7)
+        return true;
+        else
+         return false;
+        
+    }
+};

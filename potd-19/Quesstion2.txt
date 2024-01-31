@@ -1,0 +1,52 @@
+link: https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/submissions/1150486500/
+
+code: class Solution {
+   /* private:
+    bool unique(long long int arr[], int l)
+    {
+        for(int i=0;i<l;i++)
+        {
+            if(arr[i]>1)
+            return false;
+        }
+        return true;
+    }*/
+public:
+    long long maximumSubarraySum(vector<int>& nums, int k) {
+        long long int max=0,sum;
+        int i,j=0;
+        map<int,int> arr;
+        //pair <map<int, int>::iterator, bool> ptr;
+        for(i=0;i<k;i++)
+        {
+            max+=nums[i];
+           arr[nums[i]]++;
+            
+        }
+        int l=nums.size();
+        sum=max;
+        if(arr.size()!=k)
+        max=0;
+         for(;i<l;)
+        {
+            sum=sum-nums[j]+nums[i];
+            
+            if(arr[nums[j]]==1)
+            arr.erase(nums[j]);
+            else
+            arr[nums[j]]--;
+            arr[nums[i]]++;
+            //arr.insert(nums[i-1]);
+           // arr.insert(nums[j+1]);
+         //arr[nums[j++]]--;
+            //arr[nums[i++]]++;
+            if((sum>max)&& arr.size()==k)
+            {
+              max=sum;
+            }
+            i++;j++;
+        }
+        return max;
+        
+    }
+};
