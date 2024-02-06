@@ -1,0 +1,61 @@
+https://leetcode.com/problems/single-element-in-a-sorted-array/description/
+
+code:
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& nums) {
+        int size = nums.size();
+        int ans, mid;
+        if (size == 1 || nums[0] != nums[1])
+        {
+            return nums[0];
+        }
+
+        if (nums[size - 1] != nums[size - 2])
+        {
+            return nums[size - 1];
+        }
+
+        int b = 0, e = size - 1;
+
+        {
+            while (b < e)
+            {
+                mid = b + (e - b) / 2;
+
+                if (mid == b)
+                {
+                    ans = nums[mid];
+                    break;
+                }
+
+                if (mid % 2 == 0)
+                {
+                    if (nums[mid] == nums[mid - 1])
+                    {
+                        e=mid;
+                    }
+                    else
+                    {
+                        b = mid;
+                    }
+                }
+                else
+                {
+
+                    if (nums[mid] == nums[mid - 1])
+                    {
+                        b = mid;
+                    }
+                    else
+                    {
+                        e = mid;
+                    }
+                }
+            }
+           
+        }
+
+        return ans;
+    }
+};
